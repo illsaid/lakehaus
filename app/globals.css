@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 34 44% 94%;
+    --foreground: 0 0% 17%;
+    --card: 33 50% 97%;
+    --card-foreground: 0 0% 17%;
+    --popover: 33 50% 97%;
+    --popover-foreground: 0 0% 17%;
+    --primary: 0 0% 17%;
+    --primary-foreground: 34 44% 94%;
+    --secondary: 28 33% 86%;
+    --secondary-foreground: 0 0% 17%;
+    --muted: 28 33% 86%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 105 13% 46%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 28 20% 81%;
+    --input: 28 20% 81%;
+    --ring: 0 0% 17%;
+    --chart-1: 5 26% 68%;
+    --chart-2: 105 13% 67%;
+    --chart-3: 105 13% 46%;
+    --chart-4: 28 33% 86%;
+    --chart-5: 0 0% 17%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-bone text-charcoal antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .prose-editorial {
+    @apply text-base leading-[1.75] text-charcoal/80;
+  }
+
+  .prose-editorial h2 {
+    @apply font-serif text-2xl md:text-3xl font-light text-charcoal mt-12 mb-4;
+  }
+
+  .prose-editorial h3 {
+    @apply font-serif text-xl md:text-2xl font-light text-charcoal mt-10 mb-3;
+  }
+
+  .prose-editorial p {
+    @apply mb-6;
+  }
+
+  .prose-editorial blockquote {
+    @apply border-l-2 border-sage pl-6 my-8 italic text-charcoal/60;
+  }
+
+  .prose-editorial ul {
+    @apply list-disc pl-6 mb-6 space-y-2;
+  }
+
+  .prose-editorial ol {
+    @apply list-decimal pl-6 mb-6 space-y-2;
+  }
+
+  .prose-editorial a {
+    @apply text-deep-sage underline underline-offset-2 decoration-sage/40 hover:decoration-sage transition-colors;
+  }
+
+  .prose-editorial img {
+    @apply rounded-lg my-8;
+  }
+
+  .prose-editorial strong {
+    @apply font-medium text-charcoal;
+  }
+}
