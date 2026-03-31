@@ -1,38 +1,11 @@
 'use client';
 
-import { useState } from 'react';
-import { supabase } from '@/lib/supabase/client';
+import { useSubscribe } from '@/hooks/use-subscribe';
 
 export function EmailCapture() {
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<
-    'idle' | 'loading' | 'success' | 'error'
-  >('idle');
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!email) return;
-
-    setStatus('loading');
-    try {
-      const { error } = await supabase
-        .from('newsletter_subscribers')
-        .insert({ email });
-
-      if (error) {
-        if (error.code === '23505') {
-          setStatus('success');
-        } else {
-          setStatus('error');
-        }
-      } else {
-        setStatus('success');
-        setEmail('');
-      }
-    } catch {
-      setStatus('error');
-    }
-  }
+  const { email, setEmail, status, handleSubmit } = useSubscribe({
+    source: 'homepage',
+  });
 
   return (
     <section className="bg-charcoal py-20 lg:py-28">

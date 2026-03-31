@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { RecommendedItem } from '@/lib/supabase/types';
 
 interface RecommendedItemCardProps {
@@ -11,12 +12,13 @@ export function RecommendedItemCard({ item }: RecommendedItemCardProps) {
       href={`/recommended/${item.slug}`}
       className="group block bg-card-warm rounded-lg border border-soft-border/60 overflow-hidden hover:shadow-sm transition-all duration-300"
     >
-      <div className="aspect-square overflow-hidden bg-oat">
+      <div className="aspect-square relative overflow-hidden bg-oat">
         {item.product_image_url ? (
-          <img
+          <Image
             src={item.product_image_url}
             alt={item.title}
-            className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+            fill
+            className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">

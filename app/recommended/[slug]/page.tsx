@@ -4,6 +4,7 @@ import { Footer } from '@/components/layout/footer';
 import { EmailCapture } from '@/components/sections/email-capture';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ExternalLink, ArrowLeft } from 'lucide-react';
 import type { Metadata } from 'next';
 
@@ -61,12 +62,14 @@ export default async function RecommendedItemPage({ params }: PageProps) {
         <section className="bg-bone pb-16 lg:pb-24">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
             <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-start">
-              <div className="aspect-square rounded-lg overflow-hidden bg-oat">
+              <div className="aspect-square relative rounded-lg overflow-hidden bg-oat">
                 {item.product_image_url ? (
-                  <img
+                  <Image
                     src={item.product_image_url}
                     alt={item.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    priority
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center">

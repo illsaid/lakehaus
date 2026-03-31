@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Article } from '@/lib/supabase/types';
 
 interface ArticleCardProps {
@@ -16,12 +17,13 @@ export function ArticleCard({ article }: ArticleCardProps) {
 
   return (
     <Link href={`/articles/${article.slug}`} className="group block">
-      <div className="aspect-[4/3] overflow-hidden rounded-lg bg-oat mb-4">
+      <div className="aspect-[4/3] relative overflow-hidden rounded-lg bg-oat mb-4">
         {article.hero_image_url ? (
-          <img
+          <Image
             src={article.hero_image_url}
             alt={article.hero_image_alt || article.title}
-            className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+            fill
+            className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">

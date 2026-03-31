@@ -5,6 +5,7 @@ import { ArticleCard } from '@/components/content/article-card';
 import { EmailCapture } from '@/components/sections/email-capture';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const revalidate = 60;
@@ -109,11 +110,13 @@ export default async function ArticlePage({ params }: PageProps) {
 
           {article.hero_image_url && (
             <div className="max-w-4xl mx-auto px-4 sm:px-6 mb-12">
-              <div className="aspect-[16/9] overflow-hidden rounded-lg bg-oat">
-                <img
+              <div className="aspect-[16/9] relative overflow-hidden rounded-lg bg-oat">
+                <Image
                   src={article.hero_image_url}
                   alt={article.hero_image_alt || article.title}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  priority
                 />
               </div>
             </div>

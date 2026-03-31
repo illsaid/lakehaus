@@ -52,6 +52,9 @@ export const TOPICS = [
   },
 ];
 
+// TODO: replace with real checkout URL before go-live (e.g. Gumroad, Lemon Squeezy, or Stripe Payment Link)
+export const YOUNGER_LONGER_CHECKOUT_URL = 'https://buy.example.com/younger-longer';
+
 export const RECOMMENDATION_CATEGORIES = [
   { label: 'All', value: 'all' },
   { label: 'Wearables', value: 'wearables' },

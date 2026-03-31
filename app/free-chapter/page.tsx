@@ -1,36 +1,15 @@
 'use client';
 
-import { useState } from 'react';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
-import { supabase } from '@/lib/supabase/client';
+import { useSubscribe } from '@/hooks/use-subscribe';
 import { CircleCheck as CheckCircle } from 'lucide-react';
 
 export default function FreeChapterPage() {
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<
-    'idle' | 'loading' | 'success' | 'error'
-  >('idle');
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!email) return;
-
-    setStatus('loading');
-    try {
-      const { error } = await supabase
-        .from('newsletter_subscribers')
-        .insert({ email });
-
-      if (error && error.code !== '23505') {
-        setStatus('error');
-      } else {
-        setStatus('success');
-      }
-    } catch {
-      setStatus('error');
-    }
-  }
+  const { email, setEmail, status, handleSubmit } = useSubscribe({
+    source: 'free-chapter',
+    lead_magnet: 'younger-longer-chapter-1',
+  });
 
   return (
     <>

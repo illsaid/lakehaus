@@ -1,4 +1,4 @@
-import { Sparkles, Dumbbell, Zap, Moon, Flame, Heart, Video as LucideIcon } from 'lucide-react';
+import { Sparkles, Dumbbell, Zap, Moon, Flame, Heart, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 
 const iconMap: Record<string, LucideIcon> = {

@@ -4,6 +4,7 @@ import { EmailCapture } from '@/components/sections/email-capture';
 import { CircleCheck as CheckCircle, BookOpen, Shield, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { YOUNGER_LONGER_CHECKOUT_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Younger, Longer \u2014 The Complete Guide to Aging Well',
@@ -67,18 +68,18 @@ export default function YoungerLongerPage() {
                   designed, evidence-based digital guide.
                 </p>
                 <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                  <Link
-                    href="/free-chapter"
+                  <a
+                    href={YOUNGER_LONGER_CHECKOUT_URL}
                     className="inline-flex items-center justify-center px-7 py-3.5 bg-charcoal text-bone rounded text-sm tracking-wide hover:bg-charcoal/90 transition-colors"
                   >
-                    Get the Free Chapter
-                  </Link>
-                  <a
-                    href="#chapters"
+                    Get the Full Guide
+                  </a>
+                  <Link
+                    href="/free-chapter"
                     className="inline-flex items-center justify-center px-7 py-3.5 border border-charcoal/20 text-charcoal rounded text-sm tracking-wide hover:border-charcoal/40 transition-colors"
                   >
-                    See What is Inside
-                  </a>
+                    Read a Free Chapter
+                  </Link>
                 </div>
               </div>
               <div className="bg-oat rounded-2xl aspect-[3/4] flex items-center justify-center">
@@ -146,12 +147,18 @@ export default function YoungerLongerPage() {
                 </div>
               ))}
             </div>
-            <div className="mt-12 text-center">
-              <Link
-                href="/free-chapter"
+            <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href={YOUNGER_LONGER_CHECKOUT_URL}
                 className="inline-flex items-center justify-center px-8 py-4 bg-charcoal text-bone rounded text-sm tracking-wide hover:bg-charcoal/90 transition-colors"
               >
-                Read the First Chapter Free
+                Get the Full Guide
+              </a>
+              <Link
+                href="/free-chapter"
+                className="inline-flex items-center justify-center px-8 py-4 border border-charcoal/20 text-charcoal rounded text-sm tracking-wide hover:border-charcoal/40 transition-colors"
+              >
+                Read Chapter 1 Free
               </Link>
             </div>
           </div>
@@ -169,11 +176,17 @@ export default function YoungerLongerPage() {
               actionable, and backed by evidence.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/free-chapter"
+              <a
+                href={YOUNGER_LONGER_CHECKOUT_URL}
                 className="inline-flex items-center justify-center px-7 py-3.5 bg-charcoal text-bone rounded text-sm tracking-wide hover:bg-charcoal/90 transition-colors"
               >
-                Get the Free Chapter
+                Get the Full Guide
+              </a>
+              <Link
+                href="/free-chapter"
+                className="inline-flex items-center justify-center px-7 py-3.5 border border-charcoal/20 text-charcoal rounded text-sm tracking-wide hover:border-charcoal/40 transition-colors"
+              >
+                Read a Free Chapter
               </Link>
             </div>
           </div>
