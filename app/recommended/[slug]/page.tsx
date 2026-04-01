@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ExternalLink, ArrowLeft } from 'lucide-react';
 import type { Metadata } from 'next';
+import { sanitizeHtml } from '@/lib/sanitize';
 
 export const revalidate = 60;
 
@@ -158,7 +159,7 @@ export default async function RecommendedItemPage({ params }: PageProps) {
                 </h2>
                 <div
                   className="prose-editorial max-w-3xl"
-                  dangerouslySetInnerHTML={{ __html: item.editorial_body }}
+                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(item.editorial_body) }}
                 />
               </div>
             )}

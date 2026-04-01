@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { sanitizeHtml } from '@/lib/sanitize';
 
 interface ArticlePreviewProps {
   title: string;
@@ -69,7 +70,7 @@ export function ArticlePreview({
           {body ? (
             <div
               className="prose-editorial"
-              dangerouslySetInnerHTML={{ __html: body }}
+              dangerouslySetInnerHTML={{ __html: sanitizeHtml(body) }}
             />
           ) : (
             <p className="text-sm text-charcoal/20 italic">

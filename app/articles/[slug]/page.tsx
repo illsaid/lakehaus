@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { sanitizeHtml } from '@/lib/sanitize';
 
 export const revalidate = 60;
 
@@ -133,7 +134,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
             <div
               className="prose-editorial"
-              dangerouslySetInnerHTML={{ __html: article.body }}
+              dangerouslySetInnerHTML={{ __html: sanitizeHtml(article.body) }}
             />
           </div>
         </article>
