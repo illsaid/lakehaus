@@ -1,9 +1,25 @@
+/* Self-hosted fonts via @fontsource — no Google Fonts fetch at build time */
+@import '@fontsource/inter/300.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+
+@import '@fontsource/cormorant-garamond/300.css';
+@import '@fontsource/cormorant-garamond/400.css';
+@import '@fontsource/cormorant-garamond/500.css';
+@import '@fontsource/cormorant-garamond/600.css';
+@import '@fontsource/cormorant-garamond/700.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
+    /* Font family variables — consumed by tailwind.config.ts */
+    --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-cormorant: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+
     --background: 34 44% 94%;
     --foreground: 0 0% 17%;
     --card: 33 50% 97%;
