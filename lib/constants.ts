@@ -1,3 +1,5 @@
+export const SITE_URL = 'https://www.lakehaushealth.com';
+
 export const BRAND = {
   name: 'LAKEHAUS Health',
   tagline: 'The modern guide to aging well.',
