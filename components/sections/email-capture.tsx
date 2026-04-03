@@ -1,12 +1,8 @@
 'use client';
 
-import { useSubscribe } from '@/hooks/use-subscribe';
+import Script from 'next/script';
 
 export function EmailCapture() {
-  const { email, setEmail, status, handleSubmit } = useSubscribe({
-    source: 'homepage',
-  });
-
   return (
     <section className="bg-charcoal py-20 lg:py-28">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
@@ -17,41 +13,28 @@ export function EmailCapture() {
           Join women who receive clear, science-aware wellness guidance every
           week. No spam, no hype.
         </p>
-
-        {status === 'success' ? (
-          <div className="mt-8 py-4 px-6 bg-bone/10 rounded-lg border border-bone/10">
-            <p className="text-bone/70 text-sm">
-              Welcome to the community. Check your inbox soon.
-            </p>
-          </div>
-        ) : (
-          <form
-            onSubmit={handleSubmit}
-            className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-          >
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your email address"
-              required
-              className="flex-1 px-4 py-3 bg-bone/5 border border-bone/15 rounded text-bone placeholder:text-bone/25 text-sm focus:outline-none focus:border-bone/30 transition-colors"
-            />
-            <button
-              type="submit"
-              disabled={status === 'loading'}
-              className="px-6 py-3 bg-bone text-charcoal rounded text-sm font-medium hover:bg-bone/90 transition-colors disabled:opacity-50"
-            >
-              {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
-            </button>
-          </form>
-        )}
-
-        {status === 'error' && (
-          <p className="mt-3 text-sm text-muted-rose/80">
-            Something went wrong. Please try again.
-          </p>
-        )}
+        <div className="mt-8 flex justify-center">
+          <Script
+            src="https://subscribe-forms.beehiiv.com/embed.js"
+            strategy="lazyOnload"
+          />
+          <iframe
+            src="https://subscribe-forms.beehiiv.com/70f902e9-4563-41b4-88ae-b0771a2b289b"
+            className="beehiiv-embed"
+            data-test-id="beehiiv-embed"
+            frameBorder={0}
+            scrolling="no"
+            style={{
+              width: '560px',
+              height: '480px',
+              maxWidth: '100%',
+              margin: '0',
+              borderRadius: '0px',
+              backgroundColor: 'transparent',
+              boxShadow: 'none',
+            }}
+          />
+        </div>
       </div>
     </section>
   );

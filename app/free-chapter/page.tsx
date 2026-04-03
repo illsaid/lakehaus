@@ -38,7 +38,7 @@ export default function FreeChapterPage() {
                 </div>
               </div>
 
-              <div className="bg-card-warm rounded-xl border border-soft-border/60 p-8 lg:p-10 flex items-center justify-center">
+              <div className="flex items-center justify-center">
                 <Script
                   src="https://subscribe-forms.beehiiv.com/embed.js"
                   strategy="lazyOnload"
@@ -50,9 +50,9 @@ export default function FreeChapterPage() {
                   frameBorder={0}
                   scrolling="no"
                   style={{
-                    width: '100%',
-                    maxWidth: '560px',
-                    height: '315px',
+                    width: '560px',
+                    height: '480px',
+                    maxWidth: '100%',
                     margin: '0',
                     borderRadius: '0px',
                     backgroundColor: 'transparent',
