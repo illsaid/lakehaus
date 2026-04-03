@@ -10,7 +10,7 @@ export const revalidate = 60;
 export const metadata: Metadata = {
   title: 'Newsletter',
   description:
-    'Subscribe to the LAKEHAUS Health newsletter for weekly evidence-informed wellness guidance delivered to your inbox.',
+    'Subscribe to Younger, Longer Weekly for evidence-informed wellness guidance delivered to your inbox.',
 };
 
 export default async function NewsletterPage() {
@@ -34,7 +34,7 @@ export default async function NewsletterPage() {
               Newsletter
             </p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-charcoal leading-tight">
-              The LAKEHAUS Letter
+              Younger, Longer Weekly
             </h1>
             <p className="mt-6 text-lg text-charcoal/50 leading-relaxed max-w-xl mx-auto">
               Weekly evidence-informed wellness guidance for women who care about
