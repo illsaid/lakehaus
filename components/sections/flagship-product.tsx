@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { CircleCheck as CheckCircle } from 'lucide-react';
 
 const benefits = [
@@ -14,21 +15,15 @@ export function FlagshipProduct() {
     <section className="py-20 lg:py-28 bg-bone">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="bg-oat rounded-2xl aspect-[3/4] flex items-center justify-center overflow-hidden order-1 lg:order-none">
-            <div className="text-center p-12">
-              <p className="text-[11px] font-sans uppercase tracking-[0.3em] text-deep-sage mb-6">
-                The Guide
-              </p>
-              <h3 className="font-serif text-4xl lg:text-5xl font-light text-charcoal leading-tight">
-                Younger,
-                <br />
-                Longer
-              </h3>
-              <div className="mt-6 w-12 h-px bg-soft-border mx-auto" />
-              <p className="mt-6 text-sm text-charcoal/40">
-                by LAKEHAUS Health
-              </p>
-            </div>
+          <div className="rounded-2xl aspect-[3/4] overflow-hidden order-1 lg:order-none relative shadow-xl">
+            <Image
+              src="/Gemini_Generated_Image_nwlvjvnwlvjvnwlv.png"
+              alt="Younger, Longer — A Practical Guide to Younger-Looking Skin and Healthy Aging"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
+            />
           </div>
 
           <div>

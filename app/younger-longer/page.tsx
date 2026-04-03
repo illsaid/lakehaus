@@ -3,6 +3,7 @@ import { Footer } from '@/components/layout/footer';
 import { EmailCapture } from '@/components/sections/email-capture';
 import { CircleCheck as CheckCircle, BookOpen, Shield, Sparkles } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 import { YOUNGER_LONGER_CHECKOUT_URL } from '@/lib/constants';
 
@@ -82,21 +83,15 @@ export default function YoungerLongerPage() {
                   </Link>
                 </div>
               </div>
-              <div className="bg-oat rounded-2xl aspect-[3/4] flex items-center justify-center">
-                <div className="text-center p-12">
-                  <p className="text-[11px] font-sans uppercase tracking-[0.3em] text-deep-sage mb-6">
-                    The Guide
-                  </p>
-                  <h3 className="font-serif text-4xl lg:text-5xl font-light text-charcoal leading-tight">
-                    Younger,
-                    <br />
-                    Longer
-                  </h3>
-                  <div className="mt-6 w-12 h-px bg-soft-border mx-auto" />
-                  <p className="mt-6 text-sm text-charcoal/40">
-                    by LAKEHAUS Health
-                  </p>
-                </div>
+              <div className="rounded-2xl aspect-[3/4] overflow-hidden relative shadow-xl">
+                <Image
+                  src="/Gemini_Generated_Image_nwlvjvnwlvjvnwlv.png"
+                  alt="Younger, Longer — A Practical Guide to Younger-Looking Skin and Healthy Aging"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
               </div>
             </div>
           </div>
