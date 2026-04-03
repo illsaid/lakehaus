@@ -36,7 +36,7 @@ export function FlagshipProduct() {
               Flagship Guide
             </p>
             <h2 className="font-serif text-3xl md:text-4xl font-light text-charcoal leading-tight">
-              The complete guide to aging well &mdash; from the inside out
+              The complete guide to aging well — from the inside out
             </h2>
             <p className="mt-6 text-base text-charcoal/50 leading-relaxed">
               A comprehensive, beautifully designed digital guide covering

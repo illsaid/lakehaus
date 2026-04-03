@@ -16,24 +16,7 @@ export function useSubscribe(options: UseSubscribeOptions = {}) {
     e.preventDefault();
     if (!email || status === 'loading') return;
 
-    setStatus('loading');
-
-    try {
-      const res = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, ...options }),
-      });
-
-      if (res.ok) {
-        setStatus('success');
-        setEmail('');
-      } else {
-        setStatus('error');
-      }
-    } catch {
-      setStatus('error');
-    }
+    window.location.href = `https://lakehaushealth.beehiiv.com/subscribe?email=${encodeURIComponent(email)}`;
   }
 
   return { email, setEmail, status, handleSubmit };
