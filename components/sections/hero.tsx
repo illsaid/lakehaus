@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 interface HeroProps {
@@ -20,9 +21,27 @@ export function Hero({
   secondaryCtaUrl,
 }: HeroProps) {
   return (
-    <section className="relative overflow-hidden bg-bone">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36">
-        <div className="max-w-3xl relative z-10">
+    <section className="relative overflow-hidden bg-bone min-h-[600px] lg:min-h-[680px]">
+      <div className="absolute inset-0 hidden lg:block">
+        <Image
+          src="/Gemini_Generated_Image_q5rkz4q5rkz4q5rka.png"
+          alt=""
+          fill
+          priority
+          className="object-cover object-[75%_center]"
+          sizes="100vw"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(to right, #F6F0E8 38%, #F6F0E8cc 52%, #F6F0E880 65%, transparent 85%)',
+          }}
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-36 relative z-10">
+        <div className="max-w-xl">
           <p className="text-[11px] font-sans uppercase tracking-[0.3em] text-deep-sage mb-6">
             {subheadline}
           </p>
@@ -47,12 +66,6 @@ export function Hero({
             </Link>
           </div>
         </div>
-      </div>
-
-      <div className="absolute right-0 top-0 w-2/5 h-full pointer-events-none hidden lg:block">
-        <div className="absolute inset-0 bg-gradient-to-l from-oat/60 to-transparent" />
-        <div className="absolute bottom-0 right-12 w-64 h-80 bg-sage/10 rounded-t-full" />
-        <div className="absolute top-20 right-40 w-32 h-32 bg-muted-rose/8 rounded-full" />
       </div>
     </section>
   );
