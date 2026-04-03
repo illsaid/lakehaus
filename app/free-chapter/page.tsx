@@ -2,15 +2,10 @@
 
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
-import { useSubscribe } from '@/hooks/use-subscribe';
 import { CircleCheck as CheckCircle } from 'lucide-react';
+import Script from 'next/script';
 
 export default function FreeChapterPage() {
-  const { email, setEmail, status, handleSubmit } = useSubscribe({
-    source: 'free-chapter',
-    lead_magnet: 'younger-longer-chapter-1',
-  });
-
   return (
     <>
       <Header />
@@ -23,12 +18,10 @@ export default function FreeChapterPage() {
                   Free Preview
                 </p>
                 <h1 className="font-serif text-4xl sm:text-5xl font-light text-charcoal leading-[1.1]">
-                  Read the first chapter free
+                  Read a chapter free
                 </h1>
                 <p className="mt-6 text-base text-charcoal/50 leading-relaxed">
-                  Get instant access to Chapter 1 of Younger, Longer: &ldquo;The
-                  New Science of Aging Well.&rdquo; Discover the foundational
-                  principles that frame every protocol in the guide.
+                  Get instant access to Chapter 4 of Younger, Longer: &ldquo;Skin, Collagen &amp; Cosmetic Longevity&rdquo; Discover the foundational principles that frame every protocol in the guide.
                 </p>
                 <div className="mt-8 space-y-3">
                   {[
@@ -45,67 +38,27 @@ export default function FreeChapterPage() {
                 </div>
               </div>
 
-              <div className="bg-card-warm rounded-xl border border-soft-border/60 p-8 lg:p-10">
-                {status === 'success' ? (
-                  <div className="text-center py-8">
-                    <div className="w-16 h-16 rounded-full bg-sage/10 flex items-center justify-center mx-auto mb-6">
-                      <CheckCircle className="w-8 h-8 text-deep-sage" />
-                    </div>
-                    <h2 className="font-serif text-2xl font-light text-charcoal mb-3">
-                      Check your inbox
-                    </h2>
-                    <p className="text-sm text-charcoal/50 leading-relaxed">
-                      Your free chapter is on its way. Welcome to the LAKEHAUS
-                      community.
-                    </p>
-                  </div>
-                ) : (
-                  <>
-                    <h2 className="font-serif text-2xl font-light text-charcoal mb-2">
-                      Get instant access
-                    </h2>
-                    <p className="text-sm text-charcoal/40 mb-6">
-                      Enter your email and we will send Chapter 1 straight to
-                      your inbox.
-                    </p>
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      <div>
-                        <label
-                          htmlFor="email"
-                          className="block text-[11px] font-sans uppercase tracking-[0.15em] text-charcoal/40 mb-2"
-                        >
-                          Email Address
-                        </label>
-                        <input
-                          id="email"
-                          type="email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          placeholder="you@example.com"
-                          required
-                          className="w-full px-4 py-3 bg-bone border border-soft-border rounded text-charcoal placeholder:text-charcoal/25 text-sm focus:outline-none focus:border-charcoal/30 transition-colors"
-                        />
-                      </div>
-                      <button
-                        type="submit"
-                        disabled={status === 'loading'}
-                        className="w-full px-6 py-3.5 bg-charcoal text-bone rounded text-sm font-medium tracking-wide hover:bg-charcoal/90 transition-colors disabled:opacity-50"
-                      >
-                        {status === 'loading'
-                          ? 'Sending...'
-                          : 'Send Me Chapter 1'}
-                      </button>
-                    </form>
-                    {status === 'error' && (
-                      <p className="mt-3 text-sm text-muted-rose/80 text-center">
-                        Something went wrong. Please try again.
-                      </p>
-                    )}
-                    <p className="mt-4 text-[11px] text-charcoal/25 text-center leading-relaxed">
-                      No spam. Unsubscribe anytime. We respect your inbox.
-                    </p>
-                  </>
-                )}
+              <div className="bg-card-warm rounded-xl border border-soft-border/60 p-8 lg:p-10 flex items-center justify-center">
+                <Script
+                  src="https://subscribe-forms.beehiiv.com/embed.js"
+                  strategy="lazyOnload"
+                />
+                <iframe
+                  src="https://subscribe-forms.beehiiv.com/70f902e9-4563-41b4-88ae-b0771a2b289b"
+                  className="beehiiv-embed"
+                  data-test-id="beehiiv-embed"
+                  frameBorder={0}
+                  scrolling="no"
+                  style={{
+                    width: '100%',
+                    maxWidth: '560px',
+                    height: '315px',
+                    margin: '0',
+                    borderRadius: '0px',
+                    backgroundColor: 'transparent',
+                    boxShadow: 'none',
+                  }}
+                />
               </div>
             </div>
           </div>
