@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase/client';
 import type { RecommendedItem, Category } from '@/lib/supabase/types';
+import { ImageUpload } from './image-upload';
 
 interface RecommendedFormProps {
   item?: RecommendedItem;
@@ -162,12 +163,11 @@ export function RecommendedForm({ item }: RecommendedFormProps) {
       </div>
 
       <div>
-        <label className={labelClass}>Product Image URL</label>
-        <input
-          type="text"
+        <ImageUpload
           value={form.product_image_url}
-          onChange={(e) => updateField('product_image_url', e.target.value)}
-          className={inputClass}
+          onChange={(url) => updateField('product_image_url', url)}
+          bucket="product-images"
+          label="Product Image"
         />
       </div>
 
