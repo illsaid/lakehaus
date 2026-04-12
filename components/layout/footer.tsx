@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="bg-charcoal text-bone/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           <div className="lg:col-span-2">
             <Link
               href="/"
@@ -22,7 +22,7 @@ export function Footer() {
             <h4 className="text-[11px] font-sans uppercase tracking-[0.2em] text-bone/30 mb-5">
               Navigate
             </h4>
-            <nav className="space-y-3">
+            <nav className="space-y-3" aria-label="Footer navigation">
               {NAV_ITEMS.map((item) => (
                 <Link
                   key={item.href}
@@ -39,7 +39,7 @@ export function Footer() {
             <h4 className="text-[11px] font-sans uppercase tracking-[0.2em] text-bone/30 mb-5">
               Company
             </h4>
-            <nav className="space-y-3">
+            <nav className="space-y-3" aria-label="Company links">
               <Link
                 href="/how-we-review"
                 className="block text-sm text-bone/50 hover:text-bone transition-colors duration-200"

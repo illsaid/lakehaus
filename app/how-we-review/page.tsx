@@ -13,7 +13,7 @@ export default function HowWeReviewPage() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content">
         <section className="bg-bone pt-12 pb-6 lg:pt-20 lg:pb-10">
           <div className="max-w-3xl mx-auto px-4 sm:px-6">
             <p className="text-[11px] font-sans uppercase tracking-[0.25em] text-deep-sage mb-3">

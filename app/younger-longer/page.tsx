@@ -49,7 +49,7 @@ export default function YoungerLongerPage() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content">
         <section className="bg-bone pt-16 pb-12 lg:pt-28 lg:pb-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">

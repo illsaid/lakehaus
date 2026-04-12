@@ -7,6 +7,7 @@ import type { Article, Category, Author } from '@/lib/supabase/types';
 import { ImageUpload } from './image-upload';
 import { ArticlePreview } from './article-preview';
 import { Eye, EyeOff, CircleCheck as CheckCircle, CircleAlert as AlertCircle, Loader as Loader2 } from 'lucide-react';
+import { slugify } from '@/lib/utils';
 
 interface ArticleFormProps {
   article?: Article;
@@ -14,15 +15,6 @@ interface ArticleFormProps {
 
 type SlugStatus = 'idle' | 'checking' | 'available' | 'taken' | 'error';
 type SaveStatus = 'idle' | 'saving' | 'saved' | 'error';
-
-function slugify(text: string) {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .trim();
-}
 
 function calcReadingTime(html: string): number {
   const words = html

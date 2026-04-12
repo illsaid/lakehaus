@@ -20,13 +20,13 @@ export function EmailCapture() {
           />
           <iframe
             src="https://subscribe-forms.beehiiv.com/70f902e9-4563-41b4-88ae-b0771a2b289b"
-            className="beehiiv-embed"
+            title="Newsletter signup form"
+            className="beehiiv-embed w-full sm:w-[560px]"
             data-test-id="beehiiv-embed"
             frameBorder={0}
             scrolling="no"
             style={{
-              width: '560px',
-              height: '480px',
+              height: '320px',
               maxWidth: '100%',
               margin: '0',
               borderRadius: '0px',

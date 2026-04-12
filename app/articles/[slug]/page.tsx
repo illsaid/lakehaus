@@ -8,6 +8,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { sanitizeHtml } from '@/lib/sanitize';
+import { SITE_URL } from '@/lib/constants';
+import { articleJsonLd, breadcrumbJsonLd } from '@/lib/structured-data';
 
 export const revalidate = 60;
 
@@ -19,20 +21,34 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const supabase = createServerClient();
   const { data: article } = await supabase
     .from('articles')
-    .select('title, seo_title, seo_description, excerpt, og_image_url, hero_image_url')
+    .select('title, seo_title, seo_description, excerpt, og_image_url, hero_image_url, published_at, slug')
     .eq('slug', params.slug)
     .eq('status', 'published')
     .maybeSingle();
 
   if (!article) return { title: 'Article Not Found' };
 
+  const imageUrl = article.og_image_url || article.hero_image_url;
+
   return {
     title: article.seo_title || article.title,
     description: article.seo_description || article.excerpt,
+    alternates: {
+      canonical: `${SITE_URL}/articles/${article.slug}`,
+    },
     openGraph: {
-      images: article.og_image_url || article.hero_image_url
-        ? [{ url: article.og_image_url || article.hero_image_url }]
-        : undefined,
+      type: 'article',
+      title: article.seo_title || article.title,
+      description: article.seo_description || article.excerpt || '',
+      url: `${SITE_URL}/articles/${article.slug}`,
+      publishedTime: article.published_at || undefined,
+      images: imageUrl ? [{ url: imageUrl }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.seo_title || article.title,
+      description: article.seo_description || article.excerpt || '',
+      images: imageUrl ? [imageUrl] : undefined,
     },
   };
 }
@@ -70,8 +86,24 @@ export default async function ArticlePage({ params }: PageProps) {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd(article)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: 'Home', url: SITE_URL },
+              { name: 'Articles', url: `${SITE_URL}/articles` },
+              { name: article.title, url: `${SITE_URL}/articles/${article.slug}` },
+            ])
+          ),
+        }}
+      />
       <Header />
-      <main>
+      <main id="main-content">
         <article>
           <header className="bg-bone pt-12 pb-10 lg:pt-20 lg:pb-16">
             <div className="max-w-3xl mx-auto px-4 sm:px-6">

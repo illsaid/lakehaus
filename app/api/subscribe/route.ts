@@ -1,12 +1,9 @@
 import { createServerClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { isValidEmail } from '@/lib/utils';
 
 export interface SubscribePayload {
   email: string;
-  // Metadata fields — accepted and validated here but not yet persisted.
-  // TODO: add columns source, page, lead_magnet, utm_source, utm_medium,
-  // utm_campaign to the newsletter_subscribers table and include them in the
-  // insert below once the migration is applied.
   source?: string;
   page?: string;
   lead_magnet?: string;
@@ -15,26 +12,46 @@ export interface SubscribePayload {
   utm_campaign?: string;
 }
 
+const RATE_LIMIT_WINDOW = 60_000;
+const MAX_REQUESTS_PER_WINDOW = 5;
+const requestLog = new Map<string, number[]>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const timestamps = requestLog.get(ip) || [];
+  const recent = timestamps.filter((t) => now - t < RATE_LIMIT_WINDOW);
+  requestLog.set(ip, recent);
+  if (recent.length >= MAX_REQUESTS_PER_WINDOW) return true;
+  recent.push(now);
+  return false;
+}
+
 export async function POST(request: Request) {
   try {
+    const ip = request.headers.get('x-forwarded-for') || 'unknown';
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please try again later.' },
+        { status: 429 }
+      );
+    }
+
     const body: SubscribePayload = await request.json();
     const { email } = body;
 
-    if (!email || typeof email !== 'string') {
+    if (!email || typeof email !== 'string' || !isValidEmail(email.trim())) {
       return NextResponse.json(
-        { error: 'Valid email is required' },
+        { error: 'A valid email address is required' },
         { status: 400 }
       );
     }
 
+    const sanitizedEmail = email.trim().toLowerCase();
     const supabase = createServerClient();
 
-    // TODO: once the schema migration adds metadata columns, destructure them
-    // from body and include in the insert object:
-    // const { source, page, lead_magnet, utm_source, utm_medium, utm_campaign } = body;
     const { error } = await supabase
       .from('newsletter_subscribers')
-      .insert({ email });
+      .insert({ email: sanitizedEmail });
 
     if (error) {
       if (error.code === '23505') {

@@ -9,6 +9,13 @@ import { LatestArticles } from '@/components/sections/latest-articles';
 import { RecommendedPicks } from '@/components/sections/recommended-picks';
 import { TrustSection } from '@/components/sections/trust-section';
 import { EmailCapture } from '@/components/sections/email-capture';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'LAKEHAUS Health \u2014 The Modern Guide to Aging Well',
+  description:
+    'Evidence-informed wellness guidance for women who want to age beautifully, stay strong, and live with vitality. Covering skin, strength, energy, sleep, metabolism, and hormones.',
+};
 
 export const revalidate = 60;
 
@@ -39,7 +46,7 @@ export default async function HomePage() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content">
         <Hero
           headline={hero.headline || 'Age With Intelligence'}
           subheadline={

@@ -28,7 +28,7 @@ export function RecommendedItemCard({ item }: RecommendedItemCardProps) {
           </div>
         )}
       </div>
-      <div className="p-5">
+      <div className="p-4 sm:p-5">
         <p className="text-[10px] font-sans uppercase tracking-[0.15em] text-muted-rose mb-1">
           {item.brand}
         </p>

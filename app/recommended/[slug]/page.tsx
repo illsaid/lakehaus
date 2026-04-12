@@ -8,6 +8,8 @@ import Image from 'next/image';
 import { ExternalLink, ArrowLeft } from 'lucide-react';
 import type { Metadata } from 'next';
 import { sanitizeHtml } from '@/lib/sanitize';
+import { SITE_URL } from '@/lib/constants';
+import { productJsonLd, breadcrumbJsonLd } from '@/lib/structured-data';
 
 export const revalidate = 60;
 
@@ -19,7 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const supabase = createServerClient();
   const { data: item } = await supabase
     .from('recommended_items')
-    .select('title, seo_title, seo_description, short_summary')
+    .select('title, seo_title, seo_description, short_summary, product_image_url, slug')
     .eq('slug', params.slug)
     .eq('status', 'published')
     .maybeSingle();
@@ -29,6 +31,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: item.seo_title || item.title,
     description: item.seo_description || item.short_summary,
+    alternates: {
+      canonical: `${SITE_URL}/recommended/${item.slug}`,
+    },
+    openGraph: {
+      type: 'website',
+      title: item.seo_title || item.title,
+      description: item.seo_description || item.short_summary || '',
+      url: `${SITE_URL}/recommended/${item.slug}`,
+      images: item.product_image_url ? [{ url: item.product_image_url }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: item.seo_title || item.title,
+      description: item.seo_description || item.short_summary || '',
+      images: item.product_image_url ? [item.product_image_url] : undefined,
+    },
   };
 }
 
@@ -46,8 +64,24 @@ export default async function RecommendedItemPage({ params }: PageProps) {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd(item)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: 'Home', url: SITE_URL },
+              { name: 'Recommended', url: `${SITE_URL}/recommended` },
+              { name: item.title, url: `${SITE_URL}/recommended/${item.slug}` },
+            ])
+          ),
+        }}
+      />
       <Header />
-      <main>
+      <main id="main-content">
         <section className="bg-bone pt-8 pb-6 lg:pt-16 lg:pb-10">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
             <Link

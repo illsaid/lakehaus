@@ -27,7 +27,7 @@ export default async function NewsletterPage() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content">
         <section className="bg-bone pt-12 pb-8 lg:pt-20 lg:pb-14">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
             <p className="text-[11px] font-sans uppercase tracking-[0.25em] text-deep-sage mb-3">

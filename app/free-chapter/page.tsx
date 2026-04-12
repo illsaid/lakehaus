@@ -9,7 +9,7 @@ export default function FreeChapterPage() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content">
         <section className="bg-bone py-20 lg:py-32">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -38,20 +38,20 @@ export default function FreeChapterPage() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center w-full">
                 <Script
                   src="https://subscribe-forms.beehiiv.com/embed.js"
                   strategy="lazyOnload"
                 />
                 <iframe
                   src="https://subscribe-forms.beehiiv.com/70f902e9-4563-41b4-88ae-b0771a2b289b"
-                  className="beehiiv-embed"
+                  title="Free chapter signup form"
+                  className="beehiiv-embed w-full sm:w-[560px]"
                   data-test-id="beehiiv-embed"
                   frameBorder={0}
                   scrolling="no"
                   style={{
-                    width: '560px',
-                    height: '480px',
+                    height: '320px',
                     maxWidth: '100%',
                     margin: '0',
                     borderRadius: '0px',

@@ -5,18 +5,10 @@ import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase/client';
 import type { RecommendedItem, Category } from '@/lib/supabase/types';
 import { ImageUpload } from './image-upload';
+import { slugify } from '@/lib/utils';
 
 interface RecommendedFormProps {
   item?: RecommendedItem;
-}
-
-function slugify(text: string) {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .trim();
 }
 
 export function RecommendedForm({ item }: RecommendedFormProps) {

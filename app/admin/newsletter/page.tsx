@@ -6,17 +6,43 @@ import { supabase } from '@/lib/supabase/client';
 import type { NewsletterIssue } from '@/lib/supabase/types';
 import { Plus, Pencil, Trash2 } from 'lucide-react';
 
+function TableSkeleton() {
+  return (
+    <div className="bg-card-warm rounded-lg border border-soft-border/60 overflow-hidden">
+      <div className="px-4 py-3 border-b border-soft-border/40">
+        <div className="h-3 w-40 bg-oat rounded animate-pulse" />
+      </div>
+      {[1, 2, 3].map((i) => (
+        <div key={i} className="px-4 py-4 border-b border-soft-border/20 last:border-0 flex items-center gap-4">
+          <div className="flex-1 space-y-2">
+            <div className="h-4 w-3/4 bg-oat rounded animate-pulse" />
+          </div>
+          <div className="h-6 w-16 bg-oat rounded-full animate-pulse" />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function AdminNewsletterPage() {
   const [issues, setIssues] = useState<NewsletterIssue[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const fetchIssues = async () => {
-    const { data } = await supabase
-      .from('newsletter_issues')
-      .select('*')
-      .order('issue_date', { ascending: false });
-    setIssues(data || []);
-    setLoading(false);
+    try {
+      setError(null);
+      const { data, error: fetchError } = await supabase
+        .from('newsletter_issues')
+        .select('*')
+        .order('issue_date', { ascending: false });
+      if (fetchError) throw fetchError;
+      setIssues(data || []);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to load newsletter issues');
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -25,7 +51,11 @@ export default function AdminNewsletterPage() {
 
   const handleDelete = async (id: string) => {
     if (!confirm('Delete this newsletter issue?')) return;
-    await supabase.from('newsletter_issues').delete().eq('id', id);
+    const { error: deleteError } = await supabase.from('newsletter_issues').delete().eq('id', id);
+    if (deleteError) {
+      setError('Failed to delete newsletter issue');
+      return;
+    }
     fetchIssues();
   };
 
@@ -44,8 +74,17 @@ export default function AdminNewsletterPage() {
         </Link>
       </div>
 
+      {error && (
+        <div className="mb-6 p-4 bg-muted-rose/10 border border-muted-rose/20 rounded-lg text-sm text-muted-rose flex items-center justify-between">
+          <span>{error}</span>
+          <button onClick={fetchIssues} className="text-xs underline hover:no-underline">
+            Retry
+          </button>
+        </div>
+      )}
+
       {loading ? (
-        <p className="text-charcoal/30 text-sm">Loading...</p>
+        <TableSkeleton />
       ) : issues.length === 0 ? (
         <p className="text-charcoal/30 text-sm">No newsletter issues yet.</p>
       ) : (
@@ -97,12 +136,14 @@ export default function AdminNewsletterPage() {
                       <Link
                         href={`/admin/newsletter/${issue.id}`}
                         className="p-2 text-charcoal/30 hover:text-charcoal transition-colors"
+                        aria-label={`Edit ${issue.title}`}
                       >
                         <Pencil className="w-4 h-4" />
                       </Link>
                       <button
                         onClick={() => handleDelete(issue.id)}
                         className="p-2 text-charcoal/30 hover:text-muted-rose transition-colors"
+                        aria-label={`Delete ${issue.title}`}
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>

@@ -25,7 +25,8 @@ export function Hero({
       <div className="absolute inset-0 hidden lg:block">
         <Image
           src="/Gemini_Generated_Image_q5rkz4q5rkz4q5rka.png"
-          alt=""
+          alt="Woman enjoying an active, healthy lifestyle outdoors"
+          role="presentation"
           fill
           priority
           className="object-cover object-[75%_center]"
