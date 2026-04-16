@@ -53,11 +53,19 @@ export function Footer() {
                 About
               </Link>
               <Link
-                href="/free-chapter"
+                href="/free-skin-audit"
                 className="block text-sm text-bone/50 hover:text-bone transition-colors duration-200"
               >
-                Free Chapter
+                Free Skin Audit
               </Link>
+              <a
+                href="https://lookbetterlonger.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-sm text-bone/50 hover:text-bone transition-colors duration-200"
+              >
+                Shop the Guide
+              </a>
             </nav>
           </div>
         </div>

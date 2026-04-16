@@ -6,6 +6,15 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/free-chapter',
+        destination: '/free-skin-audit',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

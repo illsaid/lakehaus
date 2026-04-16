@@ -9,6 +9,7 @@ interface HeroProps {
   primaryCtaUrl: string;
   secondaryCtaText: string;
   secondaryCtaUrl: string;
+  microcopy?: string;
 }
 
 export function Hero({
@@ -19,6 +20,7 @@ export function Hero({
   primaryCtaUrl,
   secondaryCtaText,
   secondaryCtaUrl,
+  microcopy,
 }: HeroProps) {
   return (
     <section className="relative overflow-hidden bg-bone min-h-[600px] lg:min-h-[680px]">
@@ -66,6 +68,11 @@ export function Hero({
               {secondaryCtaText}
             </Link>
           </div>
+          {microcopy && (
+            <p className="mt-4 text-xs text-charcoal/40 tracking-wide">
+              {microcopy}
+            </p>
+          )}
         </div>
       </div>
     </section>

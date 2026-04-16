@@ -3,11 +3,10 @@ import Image from 'next/image';
 import { CircleCheck as CheckCircle } from 'lucide-react';
 
 const benefits = [
-  'Evidence-based protocols for skin, strength, and metabolic health',
-  'Practical daily routines you can implement immediately',
-  'Hormonal health guidance for perimenopause and beyond',
-  'Curated supplement and product recommendations',
-  'Clear, accessible language with zero medical jargon',
+  'Eight chapters covering skin, strength, metabolism, sleep, hormones, and energy',
+  'Practical daily, weekly, and seasonal protocols',
+  'Research-backed recommendations with zero hype',
+  'Guidance specifically designed for women in midlife',
 ];
 
 export function FlagshipProduct() {
@@ -28,15 +27,15 @@ export function FlagshipProduct() {
 
           <div>
             <p className="text-[11px] font-sans uppercase tracking-[0.25em] text-muted-rose mb-4">
-              Flagship Guide
+              For the next step
             </p>
             <h2 className="font-serif text-3xl md:text-4xl font-light text-charcoal leading-tight">
-              The complete guide to aging well — from the inside out
+              The audit shows you where to look. The guide shows you what to do next.
             </h2>
             <p className="mt-6 text-base text-charcoal/50 leading-relaxed">
-              A comprehensive, beautifully designed digital guide covering
-              everything modern women need to know about longevity, vitality, and
-              looking their best at every age.
+              If the Skin Audit tells you something is changing, Younger, Longer
+              gives you the practical next layer: skin, hormones, metabolism,
+              muscle, sleep, and the interventions worth understanding.
             </p>
 
             <ul className="mt-8 space-y-4">
@@ -51,17 +50,19 @@ export function FlagshipProduct() {
             </ul>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/younger-longer"
+              <a
+                href="https://lookbetterlonger.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-7 py-3.5 bg-charcoal text-bone rounded text-sm tracking-wide hover:bg-charcoal/90 transition-colors duration-200"
               >
-                Learn More
-              </Link>
+                Explore the Guide
+              </a>
               <Link
-                href="/free-chapter"
+                href="/free-skin-audit"
                 className="inline-flex items-center justify-center px-7 py-3.5 border border-charcoal/20 text-charcoal rounded text-sm tracking-wide hover:border-charcoal/40 transition-colors duration-200"
               >
-                Read a Free Chapter
+                Prefer to start free? Get the Skin Audit
               </Link>
             </div>
           </div>

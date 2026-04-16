@@ -40,10 +40,10 @@ export function Header() {
 
             <div className="hidden lg:block">
               <Link
-                href="/free-chapter"
+                href="/free-skin-audit"
                 className="text-sm px-5 py-2.5 bg-charcoal text-bone rounded hover:bg-charcoal/90 transition-colors duration-200 tracking-wide"
               >
-                Get the Free Chapter
+                Get the Free Skin Audit
               </Link>
             </div>
 
@@ -73,11 +73,11 @@ export function Header() {
               ))}
               <div className="pt-4">
                 <Link
-                  href="/free-chapter"
+                  href="/free-skin-audit"
                   onClick={() => setMobileOpen(false)}
                   className="block text-center text-sm px-5 py-3 bg-charcoal text-bone rounded hover:bg-charcoal/90 transition-colors"
                 >
-                  Get the Free Chapter
+                  Get the Free Skin Audit
                 </Link>
               </div>
             </div>

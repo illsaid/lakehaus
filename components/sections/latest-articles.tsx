@@ -21,6 +21,9 @@ export function LatestArticles({ articles }: LatestArticlesProps) {
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-charcoal">
               From the editorial desk
             </h2>
+            <p className="mt-3 text-sm text-charcoal/40 leading-relaxed max-w-md">
+              Clear thinking, not noise. Start with free editorial guidance, then go deeper with the guide.
+            </p>
           </div>
           <Link
             href="/articles"

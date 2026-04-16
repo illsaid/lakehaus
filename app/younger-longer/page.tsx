@@ -76,10 +76,10 @@ export default function YoungerLongerPage() {
                     Get the Full Guide
                   </a>
                   <Link
-                    href="/free-chapter"
+                    href="/free-skin-audit"
                     className="inline-flex items-center justify-center px-7 py-3.5 border border-charcoal/20 text-charcoal rounded text-sm tracking-wide hover:border-charcoal/40 transition-colors"
                   >
-                    Read a Free Chapter
+                    Get the Free Skin Audit
                   </Link>
                 </div>
               </div>
@@ -150,10 +150,10 @@ export default function YoungerLongerPage() {
                 Get the Full Guide
               </a>
               <Link
-                href="/free-chapter"
+                href="/free-skin-audit"
                 className="inline-flex items-center justify-center px-8 py-4 border border-charcoal/20 text-charcoal rounded text-sm tracking-wide hover:border-charcoal/40 transition-colors"
               >
-                Read Chapter 1 Free
+                Get the Free Skin Audit
               </Link>
             </div>
           </div>
@@ -178,10 +178,10 @@ export default function YoungerLongerPage() {
                 Get the Full Guide
               </a>
               <Link
-                href="/free-chapter"
+                href="/free-skin-audit"
                 className="inline-flex items-center justify-center px-7 py-3.5 border border-charcoal/20 text-charcoal rounded text-sm tracking-wide hover:border-charcoal/40 transition-colors"
               >
-                Read a Free Chapter
+                Get the Free Skin Audit
               </Link>
             </div>
           </div>

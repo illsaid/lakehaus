@@ -3,6 +3,7 @@ import { TOPICS } from '@/lib/constants';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Hero } from '@/components/sections/hero';
+import { SkinAuditFeature } from '@/components/sections/skin-audit-feature';
 import { TopicsGrid } from '@/components/sections/topics-grid';
 import { FlagshipProduct } from '@/components/sections/flagship-product';
 import { LatestArticles } from '@/components/sections/latest-articles';
@@ -48,20 +49,22 @@ export default async function HomePage() {
       <Header />
       <main id="main-content">
         <Hero
-          headline={hero.headline || 'Age With Intelligence'}
+          headline={hero.headline || 'What Your Skin Is Telling You About Your Hormones'}
           subheadline={
             hero.subheadline ||
-            'Evidence-informed wellness for women who refuse to settle for less.'
+            'Evidence-forward guidance for women who refuse to age blindly'
           }
           description={
             hero.description ||
-            'LAKEHAUS Health is a premium editorial guide to skin, strength, energy, sleep, metabolism, and hormones. Built for women who want real answers, not wellness theater.'
+            'Get the free 6-marker Skin Audit and join Younger, Longer Weekly. A fast, evidence-led scorecard for the visible changes many women notice first: firmness, dryness, slower healing, texture, pigmentation, and hair shift.'
           }
-          primaryCtaText={hero.primary_cta_text || 'Get the Free Chapter'}
-          primaryCtaUrl={hero.primary_cta_url || '/free-chapter'}
+          primaryCtaText={hero.primary_cta_text || 'Get the Free Skin Audit'}
+          primaryCtaUrl={hero.primary_cta_url || '/free-skin-audit'}
           secondaryCtaText={hero.secondary_cta_text || 'Explore Articles'}
           secondaryCtaUrl={hero.secondary_cta_url || '/articles'}
+          microcopy="Delivered instantly when you subscribe."
         />
+        <SkinAuditFeature />
         <TopicsGrid topics={TOPICS} />
         <FlagshipProduct />
         <LatestArticles articles={articles} />
