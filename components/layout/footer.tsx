@@ -32,31 +32,31 @@ export function Footer() {
                   {item.label}
                 </Link>
               ))}
-            </nav>
-          </div>
-
-          <div>
-            <h4 className="text-[11px] font-sans uppercase tracking-[0.2em] text-bone/30 mb-5">
-              Company
-            </h4>
-            <nav className="space-y-3" aria-label="Company links">
               <Link
                 href="/how-we-review"
                 className="block text-sm text-bone/50 hover:text-bone transition-colors duration-200"
               >
                 How We Review
               </Link>
-              <Link
-                href="/about"
-                className="block text-sm text-bone/50 hover:text-bone transition-colors duration-200"
-              >
-                About
-              </Link>
+            </nav>
+          </div>
+
+          <div>
+            <h4 className="text-[11px] font-sans uppercase tracking-[0.2em] text-bone/30 mb-5">
+              Resources
+            </h4>
+            <nav className="space-y-3" aria-label="Resources links">
               <Link
                 href="/free-skin-audit"
                 className="block text-sm text-bone/50 hover:text-bone transition-colors duration-200"
               >
                 Free Skin Audit
+              </Link>
+              <Link
+                href="/free-chapter"
+                className="block text-sm text-bone/50 hover:text-bone transition-colors duration-200"
+              >
+                Free Chapter Preview
               </Link>
               <a
                 href="https://lookbetterlonger.com"

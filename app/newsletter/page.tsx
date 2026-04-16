@@ -4,13 +4,17 @@ import { Footer } from '@/components/layout/footer';
 import { NewsletterCard } from '@/components/content/newsletter-card';
 import { EmailCapture } from '@/components/sections/email-capture';
 import type { Metadata } from 'next';
+import { SITE_URL } from '@/lib/constants';
 
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: 'Newsletter',
+  title: 'Newsletter — Younger, Longer Weekly',
   description:
-    'Subscribe to Younger, Longer Weekly for evidence-informed wellness guidance delivered to your inbox.',
+    'Subscribe to Younger, Longer Weekly for evidence-informed wellness guidance delivered to your inbox every Thursday.',
+  alternates: {
+    canonical: `${SITE_URL}/newsletter`,
+  },
 };
 
 export default async function NewsletterPage() {

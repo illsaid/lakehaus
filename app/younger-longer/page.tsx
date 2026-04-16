@@ -5,12 +5,15 @@ import { CircleCheck as CheckCircle, BookOpen, Shield, Sparkles } from 'lucide-r
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
-import { YOUNGER_LONGER_CHECKOUT_URL } from '@/lib/constants';
+import { YOUNGER_LONGER_CHECKOUT_URL, SITE_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Younger, Longer \u2014 The Complete Guide to Aging Well',
   description:
     'A comprehensive digital guide covering everything modern women need to know about longevity, vitality, skin health, strength, and metabolic wellness.',
+  alternates: {
+    canonical: `${SITE_URL}/younger-longer`,
+  },
 };
 
 const chapters = [
@@ -71,6 +74,8 @@ export default function YoungerLongerPage() {
                 <div className="mt-8 flex flex-col sm:flex-row gap-4">
                   <a
                     href={YOUNGER_LONGER_CHECKOUT_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-7 py-3.5 bg-charcoal text-bone rounded text-sm tracking-wide hover:bg-charcoal/90 transition-colors"
                   >
                     Get the Full Guide
@@ -145,6 +150,8 @@ export default function YoungerLongerPage() {
             <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={YOUNGER_LONGER_CHECKOUT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 bg-charcoal text-bone rounded text-sm tracking-wide hover:bg-charcoal/90 transition-colors"
               >
                 Get the Full Guide
@@ -173,6 +180,8 @@ export default function YoungerLongerPage() {
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={YOUNGER_LONGER_CHECKOUT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-7 py-3.5 bg-charcoal text-bone rounded text-sm tracking-wide hover:bg-charcoal/90 transition-colors"
               >
                 Get the Full Guide
