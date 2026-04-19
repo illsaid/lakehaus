@@ -3,16 +3,32 @@ import { Footer } from '@/components/layout/footer';
 import { EmailCapture } from '@/components/sections/email-capture';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { SITE_URL } from '@/lib/constants';
+import { breadcrumbJsonLd } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
   title: 'About',
   description:
     'LAKEHAUS Health is an independent editorial wellness publication built for women who want to age well, backed by science and free from hype.',
+  alternates: {
+    canonical: `${SITE_URL}/about`,
+  },
 };
 
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: 'Home', url: SITE_URL },
+              { name: 'About', url: `${SITE_URL}/about` },
+            ])
+          ),
+        }}
+      />
       <Header />
       <main id="main-content">
         <section className="bg-bone pt-12 pb-6 lg:pt-20 lg:pb-10">

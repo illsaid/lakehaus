@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { CircleCheck as CheckCircle } from 'lucide-react';
+import { YOUNGER_LONGER_CHECKOUT_URL } from '@/lib/constants';
 
 const benefits = [
   'Eight chapters covering skin, strength, metabolism, sleep, hormones, and energy',
@@ -51,7 +52,7 @@ export function FlagshipProduct() {
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <a
-                href="https://lookbetterlonger.com"
+                href={YOUNGER_LONGER_CHECKOUT_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-7 py-3.5 bg-charcoal text-bone rounded text-sm tracking-wide hover:bg-charcoal/90 transition-colors duration-200"

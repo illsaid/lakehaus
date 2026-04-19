@@ -2,16 +2,32 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { SITE_URL } from '@/lib/constants';
+import { breadcrumbJsonLd } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
   title: 'How We Review',
   description:
     'Our editorial standards, recommendation criteria, and affiliate disclosure policies at LAKEHAUS Health.',
+  alternates: {
+    canonical: `${SITE_URL}/how-we-review`,
+  },
 };
 
 export default function HowWeReviewPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: 'Home', url: SITE_URL },
+              { name: 'How We Review', url: `${SITE_URL}/how-we-review` },
+            ])
+          ),
+        }}
+      />
       <Header />
       <main id="main-content">
         <section className="bg-bone pt-12 pb-6 lg:pt-20 lg:pb-10">

@@ -4,6 +4,7 @@ import { Footer } from '@/components/layout/footer';
 import { RecommendedItemCard } from '@/components/content/recommended-item-card';
 import { EmailCapture } from '@/components/sections/email-capture';
 import type { Metadata } from 'next';
+import { SITE_URL } from '@/lib/constants';
 
 export const revalidate = 60;
 
@@ -11,6 +12,9 @@ export const metadata: Metadata = {
   title: 'Recommended',
   description:
     'Editorially curated products and tools we genuinely use and recommend for women focused on healthy aging and vitality.',
+  alternates: {
+    canonical: `${SITE_URL}/recommended`,
+  },
 };
 
 export default async function RecommendedPage() {

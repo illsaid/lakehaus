@@ -84,6 +84,17 @@ export default async function ArticlePage({ params }: PageProps) {
       })
     : '';
 
+  const updatedDate =
+    article.updated_at &&
+    article.published_at &&
+    new Date(article.updated_at).getTime() - new Date(article.published_at).getTime() > 86400000
+      ? new Date(article.updated_at).toLocaleDateString('en-US', {
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric',
+        })
+      : null;
+
   return (
     <>
       <script
@@ -123,12 +134,18 @@ export default async function ArticlePage({ params }: PageProps) {
                   {article.deck}
                 </p>
               )}
-              <div className="mt-6 flex items-center gap-4 text-sm text-charcoal/40">
+              <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-charcoal/40">
                 {article.author && <span>{article.author.name}</span>}
                 {publishDate && (
                   <>
                     <span className="w-0.5 h-0.5 rounded-full bg-charcoal/20" />
-                    <span>{publishDate}</span>
+                    <span>Published {publishDate}</span>
+                  </>
+                )}
+                {updatedDate && (
+                  <>
+                    <span className="w-0.5 h-0.5 rounded-full bg-charcoal/20" />
+                    <span>Updated {updatedDate}</span>
                   </>
                 )}
                 {article.reading_time > 0 && (
@@ -164,10 +181,44 @@ export default async function ArticlePage({ params }: PageProps) {
               </div>
             )}
 
+            {/* TODO: If a `key_takeaways` column (text[] or jsonb) is added to the articles table,
+                render a "Key Takeaways" block here before the body. This improves AI citation and
+                snippet extraction significantly. */}
+
             <div
               className="prose-editorial"
               dangerouslySetInnerHTML={{ __html: sanitizeHtml(article.body) }}
             />
+
+            {article.author && (
+              <div className="mt-12 pt-8 border-t border-soft-border/40 flex items-start gap-5">
+                {article.author.headshot_url && (
+                  <Image
+                    src={article.author.headshot_url}
+                    alt={article.author.name}
+                    width={56}
+                    height={56}
+                    className="rounded-full object-cover shrink-0"
+                  />
+                )}
+                <div>
+                  <p className="text-[11px] font-sans uppercase tracking-[0.2em] text-deep-sage mb-1">
+                    Written by
+                  </p>
+                  <p className="font-serif text-base font-medium text-charcoal">
+                    {article.author.name}
+                  </p>
+                  {article.author.role && (
+                    <p className="text-xs text-charcoal/40 mt-0.5">{article.author.role}</p>
+                  )}
+                  {article.author.bio && (
+                    <p className="mt-2 text-sm text-charcoal/50 leading-relaxed">
+                      {article.author.bio}
+                    </p>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
         </article>
 

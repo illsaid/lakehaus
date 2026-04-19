@@ -21,6 +21,7 @@ export function articleJsonLd(article: {
   slug: string;
   author?: { name: string } | null;
   reading_time?: number;
+  category?: { name: string } | null;
 }) {
   return {
     '@context': 'https://schema.org',
@@ -32,6 +33,7 @@ export function articleJsonLd(article: {
     dateModified: article.updated_at || article.published_at || undefined,
     url: `${SITE_URL}/articles/${article.slug}`,
     wordCount: article.reading_time ? article.reading_time * 200 : undefined,
+    articleSection: article.category?.name || undefined,
     author: article.author
       ? { '@type': 'Person', name: article.author.name }
       : { '@type': 'Organization', name: BRAND.name },
@@ -70,6 +72,38 @@ export function productJsonLd(item: {
       '@type': 'Review',
       author: { '@type': 'Organization', name: BRAND.name },
     },
+  };
+}
+
+export function guideProductJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'Younger, Longer',
+    description:
+      'An 8-chapter digital guide to healthy aging for women, covering skin longevity, strength, metabolic health, sleep, hormonal transition, energy, and a complete implementation protocol. Written by the LAKEHAUS Health editorial team.',
+    brand: { '@type': 'Brand', name: BRAND.name },
+    url: `${SITE_URL}/younger-longer`,
+    category: 'Digital Health Guide',
+    image: `${SITE_URL}/Gemini_Generated_Image_nwlvjvnwlvjvnwlv.png`,
+    publisher: { '@type': 'Organization', name: BRAND.name },
+    // TODO: Add Offer block once canonical price is confirmed at the checkout URL.
+    // Example: offers: { '@type': 'Offer', url: YOUNGER_LONGER_CHECKOUT_URL, priceCurrency: 'USD', price: '29.00', availability: 'https://schema.org/InStock' }
+  };
+}
+
+export function faqPageJsonLd(faqs: { question: string; answer: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
   };
 }
 

@@ -5,7 +5,16 @@ import { Footer } from '@/components/layout/footer';
 import { CircleCheck as CheckCircle } from 'lucide-react';
 import Script from 'next/script';
 
-export default function FreeChapterClient() {
+interface Faq {
+  question: string;
+  answer: string;
+}
+
+interface FreeChapterClientProps {
+  faqs: Faq[];
+}
+
+export default function FreeChapterClient({ faqs }: FreeChapterClientProps) {
   return (
     <>
       <Header />
@@ -20,8 +29,11 @@ export default function FreeChapterClient() {
                 <h1 className="font-serif text-4xl sm:text-5xl font-light text-charcoal leading-[1.1]">
                   Read a chapter free
                 </h1>
-                <p className="mt-6 text-base text-charcoal/50 leading-relaxed">
-                  Get instant access to Chapter 4 of Younger, Longer: &ldquo;Skin, Collagen &amp; Cosmetic Longevity&rdquo; Discover the foundational principles that frame every protocol in the guide.
+                <p className="mt-4 text-base text-charcoal/50 leading-relaxed">
+                  Chapter 4 of <em>Younger, Longer</em> &mdash; &ldquo;Skin, Collagen &amp; Cosmetic Longevity&rdquo; &mdash; delivered free to your inbox when you join Younger, Longer Weekly. No payment required.
+                </p>
+                <p className="mt-4 text-base text-charcoal/50 leading-relaxed">
+                  Get instant access to Chapter 4 of Younger, Longer: &ldquo;Skin, Collagen &amp; Cosmetic Longevity.&rdquo; Discover the foundational principles that frame every protocol in the guide.
                 </p>
                 <div className="mt-8 space-y-3">
                   {[
@@ -60,6 +72,33 @@ export default function FreeChapterClient() {
                   }}
                 />
               </div>
+            </div>
+          </div>
+        </section>
+        <section className="bg-card-warm py-16 lg:py-20">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6">
+            <div className="text-center mb-10">
+              <p className="text-[11px] font-sans uppercase tracking-[0.25em] text-deep-sage mb-3">
+                Common Questions
+              </p>
+              <h2 className="font-serif text-2xl md:text-3xl font-light text-charcoal">
+                About the free chapter
+              </h2>
+            </div>
+            <div className="space-y-0">
+              {faqs.map((faq, index) => (
+                <div
+                  key={faq.question}
+                  className={`py-6 ${index < faqs.length - 1 ? 'border-b border-soft-border/40' : ''}`}
+                >
+                  <h3 className="font-serif text-base font-medium text-charcoal mb-2">
+                    {faq.question}
+                  </h3>
+                  <p className="text-sm text-charcoal/50 leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </section>

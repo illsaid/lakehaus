@@ -4,6 +4,7 @@ import { Footer } from '@/components/layout/footer';
 import { ArticleCard } from '@/components/content/article-card';
 import { EmailCapture } from '@/components/sections/email-capture';
 import type { Metadata } from 'next';
+import { SITE_URL } from '@/lib/constants';
 
 export const revalidate = 60;
 
@@ -11,6 +12,9 @@ export const metadata: Metadata = {
   title: 'Articles',
   description:
     'Evidence-informed editorial articles on skin, strength, energy, sleep, metabolism, and hormones for women who want to age well.',
+  alternates: {
+    canonical: `${SITE_URL}/articles`,
+  },
 };
 
 export default async function ArticlesPage() {

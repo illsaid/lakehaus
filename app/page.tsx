@@ -1,5 +1,5 @@
 import { createServerClient } from '@/lib/supabase/server';
-import { TOPICS } from '@/lib/constants';
+import { TOPICS, SITE_URL } from '@/lib/constants';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Hero } from '@/components/sections/hero';
@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: 'LAKEHAUS Health \u2014 The Modern Guide to Aging Well',
   description:
     'Evidence-informed wellness guidance for women who want to age beautifully, stay strong, and live with vitality. Covering skin, strength, energy, sleep, metabolism, and hormones.',
+  alternates: {
+    canonical: SITE_URL,
+  },
 };
 
 export const revalidate = 60;
@@ -64,6 +67,13 @@ export default async function HomePage() {
           secondaryCtaUrl={hero.secondary_cta_url || '/articles'}
           microcopy="Delivered instantly when you subscribe."
         />
+        <section className="bg-bone py-10 lg:py-14 border-b border-soft-border/30">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+            <p className="text-base text-charcoal/50 leading-relaxed">
+              <strong className="font-medium text-charcoal/70">LAKEHAUS Health</strong> is an independent editorial wellness publication for women who want to age well&nbsp;&mdash; backed by science and free from hype. We cover the six pillars of healthy aging: skin, strength, energy, sleep, metabolism, and hormones. Every article, recommendation, and guide is grounded in peer-reviewed evidence, written in clear language, and produced without brand influence.
+            </p>
+          </div>
+        </section>
         <SkinAuditFeature />
         <TopicsGrid topics={TOPICS} />
         <FlagshipProduct />
