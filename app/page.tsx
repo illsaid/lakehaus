@@ -4,8 +4,10 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Hero } from '@/components/sections/hero';
 import { SkinAuditFeature } from '@/components/sections/skin-audit-feature';
+import { JourneySteps } from '@/components/sections/journey-steps';
 import { TopicsGrid } from '@/components/sections/topics-grid';
 import { FlagshipProduct } from '@/components/sections/flagship-product';
+import { CostOfDrift } from '@/components/sections/cost-of-drift';
 import { LatestArticles } from '@/components/sections/latest-articles';
 import { RecommendedPicks } from '@/components/sections/recommended-picks';
 import { TrustSection } from '@/components/sections/trust-section';
@@ -52,31 +54,26 @@ export default async function HomePage() {
       <Header />
       <main id="main-content">
         <Hero
-          headline={hero.headline || 'What Your Skin Is Telling You About Your Hormones'}
+          headline={hero.headline || 'Something is changing. Here is how to know what it means.'}
           subheadline={
             hero.subheadline ||
-            'Evidence-forward guidance for women who refuse to age blindly'
+            'A clear, evidence-aware path through the noise of modern wellness'
           }
           description={
             hero.description ||
-            'Get the free 6-marker Skin Audit and join Younger, Longer Weekly. A fast, evidence-led scorecard for the visible changes many women notice first: firmness, dryness, slower healing, texture, pigmentation, and hair shift.'
+            'LAKEHAUS Health is an independent editorial wellness publication for women. Notice what is changing. Assess what it may mean. Get a structured framework for what to do next. We cover the six pillars of healthy aging: skin, strength, energy, sleep, metabolism, and hormones.'
           }
           primaryCtaText={hero.primary_cta_text || 'Get the Free Skin Audit'}
           primaryCtaUrl={hero.primary_cta_url || '/free-skin-audit'}
-          secondaryCtaText={hero.secondary_cta_text || 'Explore Articles'}
-          secondaryCtaUrl={hero.secondary_cta_url || '/articles'}
-          microcopy="Delivered instantly when you subscribe."
+          secondaryCtaText={hero.secondary_cta_text || 'See How the Guide Works'}
+          secondaryCtaUrl={hero.secondary_cta_url || '/younger-longer'}
+          microcopy="Free. Instant. No payment required."
         />
-        <section className="bg-bone py-10 lg:py-14 border-b border-soft-border/30">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-            <p className="text-base text-charcoal/50 leading-relaxed">
-              <strong className="font-medium text-charcoal/70">LAKEHAUS Health</strong> is an independent editorial wellness publication for women who want to age well&nbsp;&mdash; backed by science and free from hype. We cover the six pillars of healthy aging: skin, strength, energy, sleep, metabolism, and hormones. Every article, recommendation, and guide is grounded in peer-reviewed evidence, written in clear language, and produced without brand influence.
-            </p>
-          </div>
-        </section>
         <SkinAuditFeature />
-        <TopicsGrid topics={TOPICS} />
+        <JourneySteps />
         <FlagshipProduct />
+        <CostOfDrift />
+        <TopicsGrid topics={TOPICS} />
         <LatestArticles articles={articles} />
         <RecommendedPicks items={recommended} />
         <TrustSection />

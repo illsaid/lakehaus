@@ -134,7 +134,10 @@ export default function YoungerLongerPage() {
                   The complete guide to aging well
                 </p>
                 <p className="mt-5 text-base text-charcoal/50 leading-relaxed max-w-lg">
-                  An 8-chapter digital guide covering the full landscape of healthy aging for women&nbsp;&mdash; skin, strength, metabolism, sleep, hormones, energy, and a complete implementation protocol. Written by the LAKEHAUS Health editorial team. One-time purchase, instant delivery.
+                  An 8-chapter digital guide covering skin, strength, metabolism, sleep, hormones, energy, and a complete implementation protocol. Written by the LAKEHAUS Health editorial team. One-time purchase, instant delivery.
+                </p>
+                <p className="mt-4 text-base text-charcoal/50 leading-relaxed max-w-lg">
+                  Most women spend years collecting fragments of wellness advice that never connect. This guide replaces that with one structured, evidence-aware framework you can start using immediately.
                 </p>
                 <div className="mt-8 flex flex-col sm:flex-row gap-4">
                   <a
@@ -188,6 +191,32 @@ export default function YoungerLongerPage() {
         </section>
 
         <section className="bg-bone py-16 lg:py-24">
+          <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+            <p className="text-[11px] font-sans uppercase tracking-[0.25em] text-deep-sage mb-4">
+              Why one guide instead of a hundred articles
+            </p>
+            <h2 className="font-serif text-3xl md:text-4xl font-light text-charcoal leading-tight">
+              The real cost of piecemeal advice
+            </h2>
+            <div className="mt-10 space-y-5 text-left max-w-lg mx-auto">
+              {[
+                'Money spent on products that address symptoms, not causes',
+                'Time lost to advice that was never designed for your biology',
+                'A prevention window that narrows while you wait for clarity',
+                'The growing feeling that you should be doing something — but what?',
+              ].map((item) => (
+                <p key={item} className="text-base text-charcoal/45 leading-relaxed pl-4 border-l border-soft-border/50">
+                  {item}
+                </p>
+              ))}
+            </div>
+            <p className="mt-10 text-base text-charcoal/60 leading-relaxed max-w-lg mx-auto">
+              Younger, Longer gives you one clear map. Not a collection of tips. A structured framework that connects skin, hormones, metabolism, strength, sleep, and energy into a single coherent protocol.
+            </p>
+          </div>
+        </section>
+
+        <section className="bg-card-warm py-16 lg:py-24">
           <div className="max-w-3xl mx-auto px-4 sm:px-6">
             <div className="grid md:grid-cols-2 gap-10 lg:gap-16">
               <div>
@@ -220,7 +249,7 @@ export default function YoungerLongerPage() {
           </div>
         </section>
 
-        <section id="chapters" className="bg-card-warm py-16 lg:py-24">
+        <section id="chapters" className="bg-bone py-16 lg:py-24">
           <div className="max-w-3xl mx-auto px-4 sm:px-6">
             <div className="text-center mb-12">
               <p className="text-[11px] font-sans uppercase tracking-[0.25em] text-deep-sage mb-3">
@@ -264,16 +293,13 @@ export default function YoungerLongerPage() {
           </div>
         </section>
 
-        <section className="bg-bone py-16 lg:py-24">
+        <section className="bg-card-warm py-16 lg:py-24">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
             <h2 className="font-serif text-3xl md:text-4xl font-light text-charcoal leading-tight">
-              Not another wellness book full of vague promises
+              One coherent framework instead of a thousand disconnected tips
             </h2>
             <p className="mt-6 text-base text-charcoal/50 leading-relaxed">
-              Younger, Longer is built on the same editorial principles as
-              LAKEHAUS Health: clear language, credible science, practical
-              protocols, and zero hype. Every recommendation is specific,
-              actionable, and backed by evidence.
+              Younger, Longer is built on the same editorial principles as LAKEHAUS Health: clear language, credible science, practical protocols, and zero hype. But unlike free content scattered across the internet, everything here connects. Each chapter builds on the last. The final chapter brings all six pillars into one daily, weekly, and seasonal protocol.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -294,7 +320,7 @@ export default function YoungerLongerPage() {
           </div>
         </section>
 
-        <section className="bg-card-warm py-16 lg:py-24">
+        <section className="bg-bone py-16 lg:py-24">
           <div className="max-w-3xl mx-auto px-4 sm:px-6">
             <div className="text-center mb-12">
               <p className="text-[11px] font-sans uppercase tracking-[0.25em] text-deep-sage mb-3">

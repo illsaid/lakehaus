@@ -22,7 +22,7 @@ export function LatestArticles({ articles }: LatestArticlesProps) {
               From the editorial desk
             </h2>
             <p className="mt-3 text-sm text-charcoal/40 leading-relaxed max-w-md">
-              Clear thinking, not noise. Start with free editorial guidance, then go deeper with the guide.
+              Start with free editorial guidance. When you are ready, go deeper with the full framework.
             </p>
           </div>
           <Link

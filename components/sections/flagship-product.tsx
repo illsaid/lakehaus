@@ -7,7 +7,7 @@ const benefits = [
   'Eight chapters covering skin, strength, metabolism, sleep, hormones, and energy',
   'Practical daily, weekly, and seasonal protocols',
   'Research-backed recommendations with zero hype',
-  'Guidance specifically designed for women in midlife',
+  'Designed specifically for female biology and midlife experience — not repurposed men\'s-health advice',
 ];
 
 export function FlagshipProduct() {
@@ -28,15 +28,18 @@ export function FlagshipProduct() {
 
           <div>
             <p className="text-[11px] font-sans uppercase tracking-[0.25em] text-muted-rose mb-4">
-              For the next step
+              When you are ready for the full picture
             </p>
             <h2 className="font-serif text-3xl md:text-4xl font-light text-charcoal leading-tight">
-              The audit shows you where to look. The guide shows you what to do next.
+              The audit shows you where to look. The guide gives you what to do about it.
             </h2>
             <p className="mt-6 text-base text-charcoal/50 leading-relaxed">
               If the Skin Audit tells you something is changing, Younger, Longer
               gives you the practical next layer: skin, hormones, metabolism,
               muscle, sleep, and the interventions worth understanding.
+            </p>
+            <p className="mt-4 text-base text-charcoal/50 leading-relaxed">
+              Most women spend months collecting fragments&nbsp;&mdash; a podcast here, an article there, a supplement someone recommended. Younger, Longer replaces that with one coherent, evidence-aware framework.
             </p>
 
             <ul className="mt-8 space-y-4">

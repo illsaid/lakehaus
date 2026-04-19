@@ -7,15 +7,13 @@ export function EmailCapture() {
     <section className="bg-charcoal py-20 lg:py-28">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
         <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-bone leading-tight">
-          Stay in the conversation
+          Start with the Skin Audit
         </h2>
         <p className="mt-4 text-base text-bone/50 leading-relaxed max-w-lg mx-auto">
-          Join women who want clearer, calmer guidance on skin, hormones,
-          metabolism, sleep, and strength. Get the free 6-Marker Skin Audit on
-          signup.
+          Score six visible markers of hormonal skin change and get your results instantly. Plus: Younger, Longer Weekly&nbsp;&mdash; one clear, evidence-aware email each week.
         </p>
         <p className="mt-2 text-[11px] font-sans uppercase tracking-[0.2em] text-bone/30">
-          Get the Free Skin Audit
+          Free. Instant. No payment required.
         </p>
         <div className="mt-6">
           <div className="flex justify-center">
