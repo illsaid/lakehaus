@@ -11,9 +11,9 @@ const steps = [
   },
   {
     number: '02',
-    label: 'Understand the pattern',
+    label: 'Read the free chapter',
     description:
-      'Read the editorial articles and a free chapter preview to see what the science actually says about what you are noticing.',
+      'Chapter 4 of Younger, Longer — Skin, Collagen & Cosmetic Longevity — gives you the evidence-aware science behind what you scored.',
     cta: 'Read a Free Chapter',
     href: '/free-chapter',
   },

@@ -18,8 +18,8 @@ const markers = [
 
 const outcomes = [
   'Which changes may be signaling something deeper',
-  'What patterns to watch over the coming weeks',
-  'When it may be worth going further with the full guide',
+  'What patterns are worth monitoring over the coming weeks',
+  'Whether the full evidence-aware framework would be a useful next step',
 ];
 
 export default function FreeSkinAuditClient() {

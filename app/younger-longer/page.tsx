@@ -137,7 +137,7 @@ export default function YoungerLongerPage() {
                   An 8-chapter digital guide covering skin, strength, metabolism, sleep, hormones, energy, and a complete implementation protocol. Written by the LAKEHAUS Health editorial team. One-time purchase, instant delivery.
                 </p>
                 <p className="mt-4 text-base text-charcoal/50 leading-relaxed max-w-lg">
-                  Most women spend years collecting fragments of wellness advice that never connect. This guide replaces that with one structured, evidence-aware framework you can start using immediately.
+                  Most women spend years collecting fragments of wellness advice that never connect. This is a structured framework designed for female biology — not wellness theater, not repurposed generic advice. One clear map you can start using immediately.
                 </p>
                 <div className="mt-8 flex flex-col sm:flex-row gap-4">
                   <a
@@ -149,10 +149,10 @@ export default function YoungerLongerPage() {
                     Get the Full Guide
                   </a>
                   <Link
-                    href="/free-chapter"
+                    href="/free-skin-audit"
                     className="inline-flex items-center justify-center px-7 py-3.5 border border-charcoal/20 text-charcoal rounded text-sm tracking-wide hover:border-charcoal/40 transition-colors"
                   >
-                    Read a Free Chapter
+                    Start with the Free Audit
                   </Link>
                 </div>
               </div>
@@ -249,7 +249,52 @@ export default function YoungerLongerPage() {
           </div>
         </section>
 
-        <section id="chapters" className="bg-bone py-16 lg:py-24">
+        <section className="bg-bone py-16 lg:py-24 border-t border-soft-border/30">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6">
+            <div className="text-center mb-10">
+              <p className="text-[11px] font-sans uppercase tracking-[0.25em] text-deep-sage mb-3">
+                What you leave with
+              </p>
+              <h2 className="font-serif text-3xl md:text-4xl font-light text-charcoal leading-tight">
+                A clearer order of operations
+              </h2>
+              <p className="mt-4 text-base text-charcoal/45 leading-relaxed max-w-xl mx-auto">
+                Not a transformation. Not a promise. A structured framework that helps you spend your attention in the right order.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-x-10 gap-y-6 max-w-2xl mx-auto">
+              {[
+                {
+                  label: 'A clear order of operations',
+                  detail: 'You will know what to address first, what can wait, and why the sequence matters for female biology specifically.',
+                },
+                {
+                  label: 'Better questions for providers',
+                  detail: 'You will leave with vocabulary and a framework that makes clinical conversations more useful.',
+                },
+                {
+                  label: 'Fewer wasted purchases',
+                  detail: 'The guide tells you what the evidence actually supports — and what is wellness theater in disguise.',
+                },
+                {
+                  label: 'One reusable framework',
+                  detail: 'Not a checklist you complete once. A structured map you return to as things shift.',
+                },
+                {
+                  label: 'Confidence about what matters first',
+                  detail: 'Most women feel overwhelmed by the volume of advice. This reduces that to a manageable, evidence-aware set of priorities.',
+                },
+              ].map((item) => (
+                <div key={item.label} className="flex flex-col gap-1.5">
+                  <p className="text-sm font-medium text-charcoal">{item.label}</p>
+                  <p className="text-sm text-charcoal/45 leading-relaxed">{item.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="chapters" className="bg-card-warm py-16 lg:py-24">
           <div className="max-w-3xl mx-auto px-4 sm:px-6">
             <div className="text-center mb-12">
               <p className="text-[11px] font-sans uppercase tracking-[0.25em] text-deep-sage mb-3">
@@ -293,13 +338,13 @@ export default function YoungerLongerPage() {
           </div>
         </section>
 
-        <section className="bg-card-warm py-16 lg:py-24">
+        <section className="bg-bone py-16 lg:py-24">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
             <h2 className="font-serif text-3xl md:text-4xl font-light text-charcoal leading-tight">
               One coherent framework instead of a thousand disconnected tips
             </h2>
             <p className="mt-6 text-base text-charcoal/50 leading-relaxed">
-              Younger, Longer is built on the same editorial principles as LAKEHAUS Health: clear language, credible science, practical protocols, and zero hype. But unlike free content scattered across the internet, everything here connects. Each chapter builds on the last. The final chapter brings all six pillars into one daily, weekly, and seasonal protocol.
+              Younger, Longer is built on the same editorial principles as LAKEHAUS Health: evidence-aware, designed for female biology, and free of wellness theater. But unlike individual articles, everything here connects. Each chapter builds on the last. The final chapter brings all six pillars into one clear map — a daily, weekly, and seasonal protocol you can return to as things shift.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -311,16 +356,16 @@ export default function YoungerLongerPage() {
                 Get the Full Guide
               </a>
               <Link
-                href="/free-chapter"
+                href="/free-skin-audit"
                 className="inline-flex items-center justify-center px-7 py-3.5 border border-charcoal/20 text-charcoal rounded text-sm tracking-wide hover:border-charcoal/40 transition-colors"
               >
-                Read a Free Chapter
+                Start with the Free Audit
               </Link>
             </div>
           </div>
         </section>
 
-        <section className="bg-bone py-16 lg:py-24">
+        <section className="bg-card-warm py-16 lg:py-24">
           <div className="max-w-3xl mx-auto px-4 sm:px-6">
             <div className="text-center mb-12">
               <p className="text-[11px] font-sans uppercase tracking-[0.25em] text-deep-sage mb-3">
