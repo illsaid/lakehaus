@@ -10,8 +10,8 @@ const nextConfig = {
     return [
       {
         source: '/free-chapter',
-        destination: '/free-skin-audit',
-        permanent: true,
+        destination: 'https://lookbetterlonger.com',
+        permanent: false,
       },
     ];
   },

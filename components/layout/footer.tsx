@@ -52,12 +52,14 @@ export function Footer() {
               >
                 Free Skin Audit
               </Link>
-              <Link
-                href="/free-chapter"
+              <a
+                href="https://lookbetterlonger.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block text-sm text-bone/50 hover:text-bone transition-colors duration-200"
               >
                 Free Chapter Preview
-              </Link>
+              </a>
               <a
                 href="https://lookbetterlonger.com"
                 target="_blank"
